@@ -1,38 +1,48 @@
 
-<div class="container">
+<div class="container" >
      <div class="row">
        <div class="col-12">
-            <div class="my-3">
+            <div class="my-3" >
 
 <div class="row d-flex justify-content-center">
 
 <div class="col-5 " >
-  <div class="jumbotron">
+  <div class="h-100 p-5 bg-light border rounded-3">
 
-    <div class="row justify-content-center">
+    <div class="row center-block">
+       <center>
       <h2>Вход</h2>
+       </center>
     </div>
 
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-inputs">
+    <div class="mb-3">
     <%= f.input :email,
                 required: false,
                 autofocus: true,
                 input_html: { autocomplete: "email" } %>
+                </div>
+  <div class="mb-3">
     <%= f.input :password,:label => 'Пароль',
                 required: false,
                 input_html: { autocomplete: "current-password" } %>
+</div>
+          <div class="mb-3">
     <%= f.input :remember_me ,:label => 'Запомнить меня', as: :boolean if devise_mapping.rememberable? %>
+    </div>
   </div>
 
 <div class="row justify-content-center">
-  <div class="form-actions">
+  <div class=" row  center-block">
+
 <%= f.button :submit, "Войти", class: 'btn btn-success' %>
-  </div>
+
+</div>
   </div>
 
 <% end %>
-
+<p></p>
 <%= render "devise/shared/links" %>
 
 </div>
