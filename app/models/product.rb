@@ -1,6 +1,6 @@
 class Product < ApplicationRecord
 
-  has_many :companies, through: :costs
-  
+  validates :name, :presence => true
+  belongs_to :product_group
 
 end

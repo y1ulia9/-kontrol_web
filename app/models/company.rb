@@ -1,5 +1,4 @@
 class Company < ApplicationRecord
-
-has_many :products, through: :costs
-
+  has_many :costs
+  validates :name, :presence => true
 end

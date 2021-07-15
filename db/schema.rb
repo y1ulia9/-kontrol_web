@@ -10,20 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_15_151649) do
+ActiveRecord::Schema.define(version: 2021_07_15_195645) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "companies", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.integer "invoice", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "costs", force: :cascade do |t|
-    t.integer "cost"
+    t.integer "cost", null: false
     t.bigint "product_id"
     t.bigint "company_id"
     t.datetime "created_at", precision: 6, null: false
@@ -33,8 +33,8 @@ ActiveRecord::Schema.define(version: 2021_07_15_151649) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "amount"
-    t.boolean "status"
+    t.integer "amount", null: false
+    t.boolean "delivered"
     t.bigint "user_id"
     t.bigint "cost_id"
     t.datetime "created_at", precision: 6, null: false
@@ -44,14 +44,14 @@ ActiveRecord::Schema.define(version: 2021_07_15_151649) do
   end
 
   create_table "product_groups", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.integer "plan", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "products", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.bigint "product_group_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 2021_07_15_151649) do
     t.integer "sign_in_count", default: 0, null: false
     t.datetime "last_sign_in_at"
     t.string "username", null: false
-    t.boolean "role"
+    t.boolean "admin"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true

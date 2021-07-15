@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
 
-  devise_for :users
-  get "welcome/index"
-  root to: "welcome#index"
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
+  devise_for :users
+  get "home/index"
+  root to: "home#index"
+
+  # if getting wrong path
+    match '*path' => redirect('/'), via: :get
 end
