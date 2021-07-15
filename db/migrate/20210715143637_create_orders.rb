@@ -1,11 +1,14 @@
 class CreateOrders < ActiveRecord::Migration[6.1]
   def change
-    create_table :costs do |t|
-    t.integer :cost
-    t.belongs_to :product
-    t.belongs_to :company
 
+    create_table :products do |t|
+      t.string :name
+      t.belongs_to :product_group
       t.timestamps
     end
+
+
+
+
   end
 end
