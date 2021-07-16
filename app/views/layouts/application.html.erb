@@ -17,7 +17,7 @@
       <div class="common-back-container ">
 
 
-        <% if ! current_user %>
+        <% if current_user %>
             <%= render partial: 'shared/navigation_bar' %>
         <% end %>
 
