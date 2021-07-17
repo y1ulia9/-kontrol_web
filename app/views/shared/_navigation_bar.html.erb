@@ -1,16 +1,17 @@
-<div class="col-sm-2 flex-grow-sm-1 flex-shrink-1 flex-grow-0 sticky-top pb-sm-0 pb-3">
+<p></p>
+<div class="flex-grow-sm-1 flex-shrink-1 flex-grow-0 sticky-top pb-sm-0 pb-3">
             <div class="bg-white border rounded-3 p-1 h-100 sticky-top">
               <div class=" center-block">
                   <center>
-                <h5 class="d-none d-sm-block text-muted">Система товарооборота</h5>
+                <h5 class="d-none d-sm-block text-muted">CRM cистема товарооборота</h5>
                   </center>
                   </div>
                 <hr>
 
-              <div class="row">
+              <div class="row ">
                 <div class="col-1">
                   </div>
-                <div class="col-5">
+                <div class="col-5 ">
                   <% if current_user.admin? %>
                     Модератор:
                       <% else %>
@@ -18,15 +19,17 @@
                   <% end %>
                 </div>
 
-              <div class="col-5">
+              <div class="col-5 ">
                               <div class="dropdown">
 
                                 <a class=" dropdown-toggle" id="dropdownMenu2"  role="button" data-bs-toggle="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                   <%= current_user.username %>
                                 </a>
-                          <ul class="dropdown-menu " aria-labelledby="dropdownMenu2">
+                          <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
                             <% if current_user.admin? %>
-                              <li><button class="dropdown-item list-group-item-primary" type="button">Статистика: менеджеры</button></li>
+                              <li>
+                                <%= link_to 'Статистика: менеджеры', home_managers_statistic_path, class: 'dropdown-item manage_link list-group-item-info' %>
+                              </li>
                                 <%= link_to 'Администрирование', rails_admin_path, class: 'dropdown-item manage_link list-group-item-warning' %>
                                     <li><hr class="dropdown-divider"></li>
                             <% end %>
@@ -47,12 +50,7 @@
                             <button type="button" class="btn btn-outline-dark dropdown-toggle w-100" data-bs-toggle="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                               План
                             </button>
-
-
-
-
                       <ul class="dropdown-menu " aria-labelledby="dropdownMenu1">
-
 
                         <% ProductGroup.all.each do |pg| %>
                           <li class="list-group-item d-flex justify-content-between align-items-start">
@@ -65,57 +63,49 @@
                             </span>
                           </li>
                         <% end %>
-
-
-
-
                       </ul>
-                    </div>
-                    </div>
+                  </div>
+            </div>
       </div>
-
-
-
-
-
-
-
-
 <hr>
 
 
 
 
+    <div class=" center-block">
+      <center>
+        <h5>
+                <ul class="nav navbar-nav flex-sm-column flex-row mb-auto justify-content-between text-truncate">
+                    <li class="nav-item active">
+                          <%= link_to "Продукты", products_path, class: "links nav-link menu-link" %>
+                    </li>
 
-                <ul class="nav nav-pills flex-sm-column flex-row mb-auto justify-content-between text-truncate">
-                    <li class="nav-item">
-                        <a href="#" class="nav-link px-2 text-truncate">
-                            <i class="bi bi-house fs-4"></i>
-                            <span class="d-none d-sm-inline">Home</span>
-                        </a>
+                    <hr class="my-2">
+
+                    <li class="nav-item active">
+                          <%= link_to "Заказы", orders_path, class: "links nav-link menu-link" %>
                     </li>
-                    <li>
-                        <a href="#" class="nav-link px-2 text-truncate">
-                            <i class="bi bi-speedometer fs-4"></i>
-                            <span class="d-none d-sm-inline">Dashboard</span>
-                        </a>
+
+                    <hr class="my-2">
+
+                    <li class="nav-item active">
+                          <%= link_to "Поставщики", companies_path, class: "links nav-link menu-link" %>
                     </li>
-                    <li>
-                        <a href="#" class="nav-link px-2 text-truncate"><i class="bi bi-card-text fs-4"></i>
-                            <span class="d-none d-sm-inline">Orders</span> </a>
+
+                    <hr class="my-2">
+
+                    <li class="nav-item active">
+                          <%= link_to "ABC-анализ", home_abc_path, class: "links nav-link menu-link" %>
                     </li>
-                    <li>
-                        <a href="#" class="nav-link px-2 text-truncate"><i class="bi bi-bricks fs-4"></i>
-                            <span class="d-none d-sm-inline">Products</span> </a>
-                    </li>
-                    <li>
-                        <a href="#" class="nav-link px-2 text-truncate"><i class="bi bi-people fs-4"></i>
-                            <span class="d-none d-sm-inline">Customers</span> </a>
-                    </li>
+
+
                 </ul>
+                        </h5>
+                    </center>
             </div>
         </div>
 
+    </div>
 
         <script type="text/javascript">
         document.getElementById("with_FSZN").addEventListener("change", function () {
