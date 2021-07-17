@@ -9,8 +9,7 @@
                 <hr>
 
               <div class="row ">
-                <div class="col-1">
-                  </div>
+              
                 <div class="col-5 ">
                   <% if current_user.admin? %>
                     Модератор:
@@ -94,9 +93,13 @@
 
                     <hr class="my-2">
 
+
                     <li class="nav-item active">
-                          <%= link_to "ABC-анализ", home_abc_path, class: "links nav-link menu-link" %>
+                      <h6>
+                          <%= link_to "ABC-анализ поставщиков", home_abc_path, class: "links nav-link menu-link" %>
+                            </h6>
                     </li>
+
 
 
                 </ul>

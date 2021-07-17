@@ -25,6 +25,7 @@ gem 'devise'
 gem 'rails_admin', '~> 2.0'
 gem 'simple_form'
 gem 'jquery-rails'
+gem "chartkick"
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

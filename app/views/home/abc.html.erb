@@ -1,0 +1,92 @@
+<hr class="my-2">
+<p></p>
+  <div class=" center-block">
+      <center>
+<div class="col-10 " >
+  <div class="jumbotron">
+
+      <div class="h-100 p-5 bg-white bg-gradient border rounded-3">
+    <h2 class="display-8" align="center">ABC-анализ поставщиков</h2>
+
+<p></p>
+
+<h8>
+  <div class = "row">
+    <div class="col-5">
+        </div>
+    <div class="col-7">
+      <cite title="Source Title">**определение групп важности поставщиков</cite>
+        </div>
+  </div>
+</h8>
+
+<p></p>
+<hr>
+
+<div class="row">
+  <div class="col-3">
+
+  </div>
+
+  <div class="col-6">
+    <div class=" center-block">
+        <center>
+            <input class="form-control" type="text" value="                      A: 80%              B: 15%              C:5%" aria-label="readonly input example" readonly>
+      </center>
+  </div>
+</div>
+
+</div>
+
+<p></p>
+
+      <div class="row">
+
+
+        <div class="col-5">
+            <%= pie_chart @pie_chart_data %>
+        </div>
+        <div class="col-7">
+          <div class="form-group row">
+            <div class="table-wrapper-scroll-y my-custom-scrollbar">
+            <table class="table table-bordered table-striped mb-0 sortable">
+              <thead>
+                <tr>
+                  <th scope="col" style="text-align:center; vertical-align: top;">№</th>
+                  <th scope="col" style="text-align:center; vertical-align: top;">Название</th>
+                  <th scope="col" style="text-align:center; vertical-align: top;">Баланс Br</th>
+                  <th scope="col" style="text-align:center; vertical-align: top;">Доля %</th>
+                  <th scope="col" style="text-align:center; vertical-align: top;">ABC</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                <%  @table_data.each_with_index do |o, index| %>
+                        <tr>
+                            <th scope="row"><%= index+1 %></th>
+                              <td style="text-align:center"><%= o[0] %> </td>
+                              <td style="text-align:center"><%= o[1]  %></td>
+                                <td style="text-align:center"><%= o[2].round(2)  %></td>
+                                  <td style="text-align:center"><b><%= o[3]  %></b></td>
+                          </tr>
+                <% end %>
+
+              </tbody>
+
+                </div>
+          </div>
+        </div>
+
+
+
+
+      </div>
+
+
+
+
+    </div>
+</div>
+</div>
+    </center>
+</div>
