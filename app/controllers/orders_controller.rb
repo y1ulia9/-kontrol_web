@@ -20,11 +20,19 @@ class OrdersController < ApplicationController
       o.delivered = params[:order][:delivered]
       o.save
 
-      # change plan be cause of we make order on products
-      pg = o.cost.product.product_group
-      pg.plan = pg.plan-o.amount
-      pg.save
 
+
+      # change invoice of company if delivered
+      if o.delivered?
+        inv = o.cost.company.invoice
+        o.cost.company.update(invoice: inv+o.amount*o.cost.cost)
+
+        # change plan be cause of we make order on products
+        pg = o.cost.product.product_group
+        pg.plan = pg.plan-o.amount
+        pg.save
+
+      end
 
       redirect_to orders_path
 
@@ -59,7 +67,18 @@ class OrdersController < ApplicationController
 
         o = Order.find(params[:order_id])
         o.delivered = true
+
+        # when order is delivered update invoice
+        inv = o.cost.company.invoice
+        o.cost.company.update(invoice: inv+o.amount*o.cost.cost)
+
+        pg = o.cost.product.product_group
+        pg.plan = pg.plan-o.amount
+
+        pg.save
         o.save
+
+
 
       end
 
