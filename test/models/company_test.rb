@@ -1,7 +1,10 @@
 require "test_helper"
 
 class CompanyTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+
+    test "should not save Product without name" do
+      p = Company.new
+      assert_not p.save
+    end
+
 end
