@@ -1,6 +1,5 @@
 class OrdersController < ApplicationController
 
-
     def new
       @product_name = Product.find(params[:product_id]).name
       @companies_select = []
@@ -9,7 +8,6 @@ class OrdersController < ApplicationController
       end
 
     end
-
 
 
     def create

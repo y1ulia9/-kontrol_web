@@ -9,7 +9,7 @@
                 <hr>
 
               <div class="row ">
-              
+
                 <div class="col-5 ">
                   <% if current_user.admin? %>
                     Модератор:
@@ -25,13 +25,7 @@
                                   <%= current_user.username %>
                                 </a>
                           <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                            <% if current_user.admin? %>
-                              <li>
-                                <%= link_to 'Статистика: менеджеры', home_managers_statistic_path, class: 'dropdown-item manage_link list-group-item-info' %>
-                              </li>
-                                <%= link_to 'Администрирование', rails_admin_path, class: 'dropdown-item manage_link list-group-item-warning' %>
-                                    <li><hr class="dropdown-divider"></li>
-                            <% end %>
+
                               <%= link_to 'Выйти', destroy_user_session_path, method: :delete, class: 'dropdown-item list-group-item-dark' %>
                           </ul>
                         </div>
