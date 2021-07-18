@@ -1,8 +1,5 @@
 class ProductsController < ApplicationController
 
-
-
-
     def index
       # If we want to get orders for specific company
       if not params[:company_id].nil?
@@ -24,11 +21,7 @@ class ProductsController < ApplicationController
 
     end
 
-
-
     def show
-
     end
-
 
 end

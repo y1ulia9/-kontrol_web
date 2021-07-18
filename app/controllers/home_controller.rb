@@ -32,14 +32,7 @@ class HomeController < ApplicationController
 
         end
 
-
-
-
-
         end
-
-
-
 
     def managers_statistic
           @chart_sign_in_count_data=[]
@@ -49,11 +42,6 @@ class HomeController < ApplicationController
                 @chart_sign_in_count_data << [u.username, u.sign_in_count]
           end
 
-
-
-
     end
-
-
 
 end
