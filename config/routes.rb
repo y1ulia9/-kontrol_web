@@ -13,4 +13,5 @@ Rails.application.routes.draw do
 
   # if getting wrong path
     match '*path' => redirect('/'), via: :get
+    
 end

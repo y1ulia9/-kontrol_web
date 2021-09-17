@@ -18,7 +18,6 @@ class HomeController < ApplicationController
           part = c.invoice.to_f/summ.to_f
           additional_part += part
 
-
           case additional_part
             when 0.0 .. 0.8
               group = "A"
